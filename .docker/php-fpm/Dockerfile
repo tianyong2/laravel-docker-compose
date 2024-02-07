@@ -27,9 +27,10 @@ RUN apk --no-cache --update \
     &&  rm -rf /var/cache/apk/* /tmp/* /var/tmp/*
 
 # composer repositories use china mirrors, if need, replace it
-RUN wget https://dl.laravel-china.org/composer.phar -O /usr/local/bin/composer \
+# RUN wget https://dl.laravel-china.org/composer.phar -O /usr/local/bin/composer \
+RUN wget https://getcomposer.org/download/2.6.6/composer.phar -O /usr/local/bin/composer \
     && chmod a+x /usr/local/bin/composer \
-    && composer config -g repo.packagist composer https://packagist.laravel-china.org
+    && composer config -g repo.packagist composer https://mirrors.aliyun.com/compose
 
 WORKDIR /var/www
 
